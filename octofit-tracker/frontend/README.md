@@ -1,16 +1,27 @@
-# React + Vite
+# OctoFit presentation tier
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+The React 19 and Vite presentation tier uses `react-router-dom` for navigation and reads collection data from the Node.js API.
 
-Currently, two official plugins are available:
+## Codespaces configuration
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+Define `VITE_CODESPACE_NAME` in `.env.local` before starting Vite:
 
-## React Compiler
+```bash
+cp .env.example .env.local
+```
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Set the value to the Codespace name, for example:
 
-## Expanding the Oxlint configuration
+```env
+VITE_CODESPACE_NAME=glowing-pancake-5vx6jwjqvwrp3746v
+```
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+The frontend then requests `https://<codespace-name>-8000.app.github.dev/api/...`. When the variable is not set, it safely falls back to `http://localhost:8000/api/...` for local development.
+
+## Run locally
+
+```bash
+npm run dev
+```
+
+Vite serves the presentation tier on port `5173`.
