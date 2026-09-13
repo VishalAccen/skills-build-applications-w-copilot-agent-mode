@@ -3,7 +3,7 @@ import { connectDatabase } from './config/database.js';
 import apiRouter from './routes.js';
 
 const app = express();
-const port = Number(process.env.PORT) || 8000;
+const port = 8000;
 
 app.use(express.json());
 app.use((_request, response, next) => {
